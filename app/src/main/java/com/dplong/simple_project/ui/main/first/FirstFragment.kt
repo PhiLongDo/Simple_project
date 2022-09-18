@@ -1,14 +1,23 @@
 package com.dplong.simple_project.ui.main.first
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import com.dplong.simple_project.MainActivity
 import com.dplong.simple_project.R
 import com.dplong.simple_project.databinding.FragmentFirstBinding
-import com.dplong.simple_project.databinding.FragmentLoginBinding
+import com.dplong.simple_project.ui.login.LoginViewModel
+import com.dplong.simple_project.ui.main.second.SecondViewModel
+import kotlinx.coroutines.launch
 
 class FirstFragment : Fragment() {
 
@@ -25,7 +34,7 @@ class FirstFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
-        // TODO: Use the ViewModel
+        bindingView()
     }
 
     override fun onCreateView(
@@ -34,8 +43,30 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+
+        val email = (requireActivity() as MainActivity).email
+        viewModel.sentEmail(email ?: "")
+        _binding!!.content.setContent {
+            FirstContent(vm = viewModel)
+        }
+
+        return _binding?.root
+    }
+
+    private fun bindingView() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.events.collect { event ->
+                    when (event) {
+                        FirstViewModel.Event.NavToSecondScreen -> {
+                            val direction = FirstFragmentDirections.actionFirstFragmentToSecondFragment()
+                            findNavController().navigate(direction)
+                        }
+                    }
+
+                }
+            }
+        }
     }
 
     override fun onDestroyView() {

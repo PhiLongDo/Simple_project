@@ -52,6 +52,7 @@ class LoginFragment : Fragment() {
                             val intent = Intent(requireContext(), MainActivity::class.java)
                             intent.putExtra("email", viewModel.state.email)
                             startActivity(intent)
+                            requireActivity().finish()
                         }
                     }
 
