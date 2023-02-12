@@ -42,11 +42,17 @@ internal fun LoginContentView(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = stringResource(R.string.email))
+        Text(
+            text = stringResource(R.string.email),
+            fontSize = 16.sp,
+        )
         Spacer(modifier = Modifier.height(8.dp))
         TextField(value = state.email, onValueChange = onEmailChange)
         Spacer(modifier = Modifier.height(24.dp))
-        Text(text = stringResource(R.string.password))
+        Text(
+            text = stringResource(R.string.password),
+            fontSize = 16.sp,
+        )
         TextField(value = state.password, onValueChange = onPasswordChange)
         Spacer(modifier = Modifier.height(32.dp))
         Box(
