@@ -1,4 +1,4 @@
-package com.dplong.simple_project
+package com.dplong.simple_project.ui.login
 
 import android.content.res.Configuration
 import android.os.Bundle

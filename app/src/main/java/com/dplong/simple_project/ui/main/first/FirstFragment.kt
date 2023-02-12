@@ -1,6 +1,5 @@
 package com.dplong.simple_project.ui.main.first
 
-import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,13 +9,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.dplong.simple_project.MainActivity
-import com.dplong.simple_project.R
+import com.dplong.simple_project.ui.main.MainActivity
 import com.dplong.simple_project.databinding.FragmentFirstBinding
-import com.dplong.simple_project.ui.login.LoginViewModel
-import com.dplong.simple_project.ui.main.second.SecondViewModel
 import kotlinx.coroutines.launch
 
 class FirstFragment : Fragment() {

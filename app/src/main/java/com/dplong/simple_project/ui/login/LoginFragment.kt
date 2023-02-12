@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.dplong.simple_project.MainActivity
+import com.dplong.simple_project.ui.main.MainActivity
 import com.dplong.simple_project.databinding.FragmentLoginBinding
 import kotlinx.coroutines.launch
 

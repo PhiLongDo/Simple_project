@@ -1,4 +1,4 @@
-package com.dplong.simple_project
+package com.dplong.simple_project.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
