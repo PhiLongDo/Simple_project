@@ -3,7 +3,13 @@ package com.dplong.simple_project.ui.login
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -47,13 +53,13 @@ internal fun LoginContentView(
             fontSize = 16.sp,
         )
         Spacer(modifier = Modifier.height(8.dp))
-        TextField(value = state.email, onValueChange = onEmailChange)
+        TextField(value = state.email, onValueChange = onEmailChange, maxLines = 1)
         Spacer(modifier = Modifier.height(24.dp))
         Text(
             text = stringResource(R.string.password),
             fontSize = 16.sp,
         )
-        TextField(value = state.password, onValueChange = onPasswordChange)
+        TextField(value = state.password, onValueChange = onPasswordChange, maxLines = 1)
         Spacer(modifier = Modifier.height(32.dp))
         Box(
             modifier = Modifier

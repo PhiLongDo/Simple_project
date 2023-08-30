@@ -10,10 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.dplong.simple_project.R
 import com.dplong.simple_project.databinding.FragmentSecondBinding
-import com.dplong.simple_project.ui.main.first.FirstFragmentDirections
-import com.dplong.simple_project.ui.main.first.FirstViewModel
 import kotlinx.coroutines.launch
 
 /**
@@ -30,7 +27,6 @@ class SecondFragment : Fragment() {
     private lateinit var viewModel: SecondViewModel
 
     private var _binding: FragmentSecondBinding? = null
-    private val binding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
