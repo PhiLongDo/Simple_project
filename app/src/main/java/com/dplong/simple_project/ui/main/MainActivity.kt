@@ -1,12 +1,9 @@
 package com.dplong.simple_project.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.dplong.simple_project.databinding.ActivityMainBinding
-import com.dplong.simple_project.ui.main.first.FirstFragment
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

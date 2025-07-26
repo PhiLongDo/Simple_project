@@ -3,7 +3,15 @@ package com.dplong.simple_project.ui.main.second
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +24,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.dplong.simple_project.R
+import com.dplong.simple_project.ui.compose.AppPieChart
 
 @Composable
 internal fun SecondContent(
@@ -28,6 +38,12 @@ internal fun SecondContent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        AppPieChart(
+            modifier = Modifier
+                .heightIn(200.dp, 500.dp)
+                .fillMaxWidth(),
+            data = listOf(ValueDataEntry("aaa", 10), ValueDataEntry("bbb", 20))
+        )
         Box(
             modifier = Modifier
                 .clickable(

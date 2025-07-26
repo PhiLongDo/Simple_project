@@ -8,11 +8,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Password
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +29,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dplong.simple_project.R
+import com.dplong.simple_project.ui.compose.AppText
+import com.dplong.simple_project.ui.compose.AppTextField
+import com.dplong.simple_project.ui.compose.PasswordTextField
 
 @Composable
 fun LoginContent(vm: LoginViewModel) {
@@ -48,18 +55,48 @@ internal fun LoginContentView(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
+        AppText(
             text = stringResource(R.string.email),
             fontSize = 16.sp,
         )
         Spacer(modifier = Modifier.height(8.dp))
-        TextField(value = state.email, onValueChange = onEmailChange, maxLines = 1)
+        AppTextField(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            value = state.email,
+            onValueChange = onEmailChange,
+            leadingIcon = {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    imageVector = Icons.Filled.Email,
+                    contentDescription = null,
+                )
+            },
+            singleLine = true
+        )
         Spacer(modifier = Modifier.height(24.dp))
-        Text(
+        AppText(
             text = stringResource(R.string.password),
             fontSize = 16.sp,
         )
-        TextField(value = state.password, onValueChange = onPasswordChange, maxLines = 1)
+        PasswordTextField(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            value = state.password,
+            onValueChange = onPasswordChange,
+            placeholder = "",
+            hasError = false,
+            maxLength = 16,
+            leadingIcon = {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    imageVector = Icons.Filled.Password,
+                    contentDescription = null,
+                )
+            },
+        )
         Spacer(modifier = Modifier.height(32.dp))
         Box(
             modifier = Modifier
@@ -71,7 +108,7 @@ internal fun LoginContentView(
                 .background(color = Color.Black.copy(alpha = 0.75f))
         )
         {
-            Text(
+            AppText(
                 modifier = Modifier
                     .padding(horizontal = 32.dp, vertical = 16.dp),
                 text = stringResource(R.string.login),

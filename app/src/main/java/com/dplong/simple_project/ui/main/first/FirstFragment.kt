@@ -14,11 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.dplong.simple_project.data.pref.AppPreferences
 import com.dplong.simple_project.databinding.FragmentFirstBinding
 import com.dplong.simple_project.ui.main.MainActivity
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
     companion object {
@@ -29,13 +26,13 @@ class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
 
-    @Inject
     lateinit var preferences: AppPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[FirstViewModel::class.java]
         bindingView()
+        preferences = AppPreferences.getInstance()
         Log.d("Email", preferences.username)
     }
 

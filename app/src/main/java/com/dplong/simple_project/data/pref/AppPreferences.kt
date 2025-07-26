@@ -1,11 +1,8 @@
 package com.dplong.simple_project.data.pref
 
 import android.content.SharedPreferences
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class AppPreferences @Inject constructor(sharedPreferences: SharedPreferences) {
+class AppPreferences private constructor(sharedPreferences: SharedPreferences) {
     companion object {
         private const val SIMPLE_STRING_KEY = "simple string key"
         private const val SIMPLE_INT_KEY = "simple int key"
@@ -13,7 +10,19 @@ class AppPreferences @Inject constructor(sharedPreferences: SharedPreferences) {
         private const val SIMPLE_BOOLEAN_KEY = "simple boolean key"
         private const val TOKEN_KEY = "token_key"
         private const val USERNAME_KEY = "username_key"
+
+        @Volatile
+        private var instance: AppPreferences? = null
+
+
+        fun init(sharedPreferences: SharedPreferences) {
+            instance = AppPreferences(sharedPreferences)
+        }
+
+        fun getInstance() = instance!!
     }
+
+    private lateinit var sharedPreferences: SharedPreferences
 
     // Simple
     var stringValue by PreferencesDelegate<String, String>(
