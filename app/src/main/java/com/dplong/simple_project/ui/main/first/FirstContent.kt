@@ -3,7 +3,13 @@ package com.dplong.simple_project.ui.main.first
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +23,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dplong.simple_project.R
+import com.dplong.simple_project.ui.compose.MediaPermissionButton
+import com.dplong.simple_project.ui.compose.PermissionButton
 
 @Composable
 internal fun FirstContent(
@@ -38,17 +46,26 @@ internal fun FirstContent(
                 .clip(CircleShape)
                 .border(width = 2.dp, color = Color.Cyan, shape = CircleShape)
                 .background(color = Color.Black.copy(alpha = 0.75f))
-        )
-        {
+        ) {
             Text(
-                modifier = Modifier
-                    .padding(horizontal = 32.dp, vertical = 16.dp),
+                modifier = Modifier.padding(
+                    horizontal = 32.dp,
+                    vertical = 16.dp
+                ),
                 text = stringResource(R.string.second_screen),
                 style = TextStyle(color = Color.White),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
             )
         }
+
+        Spacer(modifier = Modifier.height(24.dp))
+        PermissionButton(
+            permissions = listOf(android.Manifest.permission.CAMERA),
+            title = "Camera",
+        )
+        Spacer(modifier = Modifier.height(24.dp))
+        MediaPermissionButton()
     }
 }
 
