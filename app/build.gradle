@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace "com.dplong.simple_project"
+    namespace "com.dplong.sample_project"
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.dplong.simple_project"
+        applicationId "com.dplong.sample_project"
         minSdkVersion 24
         targetSdkVersion 36
         versionCode 1

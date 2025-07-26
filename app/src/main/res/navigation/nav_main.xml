@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.dplong.simple_project.ui.main.first.FirstFragment"
+        android:name="com.dplong.sample_project.ui.main.first.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.dplong.simple_project.ui.main.second.SecondFragment"
+        android:name="com.dplong.sample_project.ui.main.second.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
+        tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_secondFragment_to_firstFragment"
             app:destination="@id/firstFragment" />
